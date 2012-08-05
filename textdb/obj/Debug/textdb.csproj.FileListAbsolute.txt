@@ -1,15 +1,6 @@
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\textdb.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\textdb.pdb
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\EntityFramework.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\Microsoft.Web.Infrastructure.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\System.Web.Helpers.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\System.Web.Mvc.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\System.Web.Providers.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\System.Web.Razor.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\System.Web.WebPages.Deployment.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\System.Web.WebPages.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\System.Web.WebPages.Razor.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\bin\EntityFramework.xml
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\obj\Debug\textdb.csprojResolveAssemblyReference.cache
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\obj\Debug\textdb.dll
-c:\users\neil\documents\visual studio 11\Projects\textdb\textdb\obj\Debug\textdb.pdb
+C:\Users\neil\Projects\Web\textdb\textdb\bin\textdb.dll
+C:\Users\neil\Projects\Web\textdb\textdb\bin\textdb.pdb
+C:\Users\neil\Projects\Web\textdb\textdb\bin\EntityFramework.dll
+C:\Users\neil\Projects\Web\textdb\textdb\bin\EntityFramework.xml
+C:\Users\neil\Projects\Web\textdb\textdb\obj\Debug\textdb.dll
+C:\Users\neil\Projects\Web\textdb\textdb\obj\Debug\textdb.pdb
