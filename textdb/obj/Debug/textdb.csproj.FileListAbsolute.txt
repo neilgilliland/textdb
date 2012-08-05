@@ -1,6 +1,0 @@
-C:\Users\neil\Projects\Web\textdb\textdb\bin\textdb.dll
-C:\Users\neil\Projects\Web\textdb\textdb\bin\textdb.pdb
-C:\Users\neil\Projects\Web\textdb\textdb\bin\EntityFramework.dll
-C:\Users\neil\Projects\Web\textdb\textdb\bin\EntityFramework.xml
-C:\Users\neil\Projects\Web\textdb\textdb\obj\Debug\textdb.dll
-C:\Users\neil\Projects\Web\textdb\textdb\obj\Debug\textdb.pdb
