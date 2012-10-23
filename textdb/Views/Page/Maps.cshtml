@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Maps";
+}
+
+<link href="@Url.Content("~/Content/Maps.css")" rel="stylesheet" type="text/css" />
+
+<script>
+	loader.include( 'browser' )
+</script>
+
+<h1>Bellsmeadow Scout Hut</h1>
+<div id="information">
+	<div id="location">10 Bellsmeadow Road<br/> Falkirk, FK1 1SD</div>
+	<div id="image"></div>
+	<div id="details" cms-edit="sh1">
+		An old scout hut build in the thirties.
+	    It has a nice wooden floor, toilet faclities, it's own car park plus plenty of parking up the side of the building.
+	    It's also easy walking distance from the bus station and the center of town.
+	</div>
+	<a id="directions" href="http://maps.google.com/maps?f=d&source=s_q&hl=en&geocode=&q=Bellsmeadow+Road&sll=55.999581,-3.781657&sspn=0.007943,0.03871&ie=UTF8&hq=&hnear=Bellsmeadow+Rd,+Falkirk+FK1+1,+United+Kingdom&ll=56.004332,-3.773975&spn=0.016077,0.030041&z=14&iwloc=A&daddr=Bellsmeadow+Rd,+Falkirk+FK1+1,+UK">directions</a>
+</div>
+<div id="falkirk-scout" class="map"></div>
+<br/><br/>
+<h1>Girl Guide Hall</h1>
+<div id="information">
+	<div id="location">Booth Place,Pleasance Square<br/>Falkirk</div>
+	<div id="falkirk-guides-image"></div>
+	<div id="details" cms-edit="sh1">
+	An active guide hall in Falkirk Town Center. Parking close to the building can occasionally be difficult, but there is plenty of parking spaces nearby.
+	</div>
+	<a id="directions" href="http://maps.google.co.uk/maps?f=d&source=s_q&hl=en&geocode=&q=the+guide+hall+booth+place+falkirk&sll=55.997901,-3.786056&sspn=0.009684,0.016973&gl=uk&ie=UTF8&hq=the+guide+hall&hnear=Booth+Pl,+Falkirk+FK1+1,+United+Kingdom&ll=55.997925,-3.785777&spn=0.0084,0.018239&z=15&iwloc=A&daddr=Falkirk+%26+District+Guide+Hall,+Pleasance,+Falkirk,UK">directions</a>
+</div>
+<div id="falkirk-guide" class="map"></div>
+
+<br/><br/>
+<h1>Beechwood Scout Centre</h1>
+<div id="information">
+
+	<div id="location">Beechwood Park, Newhouse<br/>Stirling, FK8 2AE</div>
+	<div id="stirling-image"></div>
+	<div id="details" cms-edit="sh1">
+	Recently full renovated, the Scout Centre has full facilities and it's own private car park with ample parking.
+	</div>
+	<a id="directions" href="http://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=beechwood+scout+hut&amp;sll=56.10805,-3.941731&amp;sspn=0.002489,0.004243&amp;ie=UTF8&amp;hq=beechwood+scout+hut&amp;hnear=&amp;ll=56.147139,-3.952954&amp;spn=0.093814,0.026934" style="color:#0000FF;text-align:left">directions</a>
+</div>
+<div id="stirling-scout" class="map"></div>
+
+<script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript">
+
+	function showMap(element,latlng, title)
+	{
+		var options =
+		{
+			zoom: 15,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+
+		var map = new google.maps.Map(document.getElementById(element), options);
+
+		var marker = new google.maps.Marker
+		({
+			position: latlng,
+			icon: '../png/yinyang.png")',
+			title:title
+		})
+		marker.setMap(map);
+	}
+
+	$on(window,"load", function()
+	{
+    	showMap( "falkirk-scout",  new google.maps.LatLng(  56.00018, -3.7758), "scout hall");
+	    showMap( "falkirk-guide",  new google.maps.LatLng(  55.99781, -3.7860), "guide hall");
+    	showMap( "stirling-scout", new google.maps.LatLng(  56.10830, -3.9404), "scout hall");
+	})
+
+</script>

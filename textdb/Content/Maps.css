@@ -1,0 +1,97 @@
+<style>
+h1
+{
+  font-size:12pt;
+  font-wight:bold;
+  margin:0px;
+  padding:0px;
+}
+div#information
+{
+  float:left;
+}
+
+div#image
+{
+  height:122px;
+  width:184px;
+  background:url('/jpg/scout_hut.jpg') no-repeat;
+  padding:0px;
+  border:1px solid silver;
+}
+
+div#falkirk-guides-image
+{
+  height:122px;
+  width:184px;
+  background:url('/jpg/guidehall.jpg') no-repeat;
+  padding:0px;
+  border:1px solid silver;
+}
+
+div#stirling-image
+{
+  height:122px;
+  width:184px;
+  background:url('/jpg/beechwood-3.jpg') no-repeat;
+  padding:0px;
+  border:1px solid silver;
+}
+
+div#location
+{
+  height:30px;
+  width:184px;
+  font-size:9pt;
+  position:relative;
+  top: -1px;
+  padding-top:4px;
+  padding-bottom:4px;
+  font-family:arial;
+}
+
+div#details
+{
+  margin-top:5px;
+  height:100px;
+  width:184px;
+  font-size:8.75pt;
+  margin-bottom:4px;
+  line-height:1.25em;
+  font-family:helvetica;
+}
+
+#map
+{
+  position:relative;
+  left:20px;
+  height:275px;
+  width:325px;
+  margin-top:10px;
+}
+
+#directions
+{
+  font-size:10pt;
+  float:right;
+  font-family:helvetica;
+}
+
+.clearfix:after
+{
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+div.map
+{
+	position:relative;
+	left:20px;
+	height:275px;
+	width:325px;
+	margin-top:10px;
+}
+</style>

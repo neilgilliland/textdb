@@ -1,0 +1,94 @@
+<style>
+
+div#quote_content
+{
+	border: 0px;
+	padding:0px;
+	margin:0px;
+	font-size:9pt;
+}
+#title
+{
+	font-weight:bold;
+}
+#text
+{
+	font-weight:normal;
+	font-family:arial
+}
+#source
+{
+}
+#author
+{
+	font-style:normal;
+	color:gray;
+	float:right;
+}
+#when
+{
+	color:gray;
+}
+
+{
+}
+
+
+#new_classes ul
+{
+	padding:0px;
+	margin: 0px;
+	padding-bottom:3px;
+}
+
+#new_classes ul li
+{
+	list-style:none;
+	font-family:arial;
+	font-size:9pt;
+	position:relative;
+	left:0px;
+	padding-bottom:1px;
+	margin:0px
+}
+
+#new_classes #text
+{
+	font-weight:normal;
+	font-family:arial;
+	font-size:10pt;
+}
+
+#new_classes h2
+{
+	font-size:12pt;
+}
+
+#new_classes #contact-text
+{
+	font-weight:bold;
+	font-family:arial;
+	font-size:10pt;
+	margin:0px;
+	padding:0px;
+	padding-bottom:10px;
+}
+
+#new_classes #location
+{
+	font-weight:normal;
+	font-family:arial;
+	font-size:10pt;
+	float:right;
+}
+
+#new_classes #address
+{
+	font-weight:normal;
+	font-family:arial;
+	font-size:8pt;
+	margin:0px;
+	padding:0px;
+}
+
+</style>

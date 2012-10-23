@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<link href="@Url.Content("~/Content/Home.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Maps.css")" rel="stylesheet" type="text/css" />
+
+<h1>Long River Tai Chi Circle</h1>
+<div class="text">
+<p>Long River Tai Chi Circle is the school of Wolfe Lowenthal, student of Cheng Man-ch'ing and author of the acclaimed " There are no Secrets" and "Gateway to the Miraculous"</p>
+<p>We practice the Professor's 'simplified' 37 posture Yang-style form. The three pillars of our study are Form, Push Hands, and Sword.</p>
+</div>
+
+<!--
+<div id="quote_content" class="clearfix">
+
+	{- eval query='quote=Quote.random()' -}
+
+	<h1 id="title">{- quote.title -}</h1>
+	<p id="text">{- quote.text -}</p>
+	<div id="author">{- quote.author -}</div>
+
+</div>
+-->
+
+<div id="new_class">
+    <div id="new_classes">
+    <h1>New Classes</h1>
+    <p id="text">There are three new classes starting the end of September:</p>
+
+    <h2><strong>Falkirk</strong></h2>
+    <ul>
+    <li>Monday 27th September, 10am to 11am. Bellsmeadow Scout Hall, Falkirk</li>
+    <li>Thursday 30th September, 8pm to 9pm, The Guide Hall, Booth Place, Pleasance Square Falkirk</li>
+    </ul>
+    <p id="contact-text">Phone Gordon on 01324 885095 for more information, use our @Html.ActionLink("contact", "ContactUs", new { selection=2 }) page to send an email or just turn up on the day.&nbsp;&nbsp;
+    <a href='javascript:open_map("FalkirkScoutMap","fc1")' >map.</a></p>
+    <br/>
+    <h2><strong>Stirling</strong></h2>
+    </ul>
+    <ul>
+    <li>Monday 27th September, 7.30pm tp 8.30pm, Beechwood Scout Hut,Newhouse, Stirling</li>
+    </ul>
+    <p id="contact-text">Phone Margaret on 01786 811531 for more information, use our @Html.ActionLink("contact", "ContactUs", new { selection=1 }) page to send an email or just turn up on the day.&nbsp;&nbsp;<a href='javascript:open_map("StirlingMap","sc1")'>map.</a></p>
+    <br/>
+    </div>
+</div>

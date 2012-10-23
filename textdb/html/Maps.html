@@ -1,0 +1,48 @@
+
+<h1>Bellsmeadow Scout Hut</h1>
+<div id="information">
+	<div id="location">10 Bellsmeadow Road<br/> Falkirk, FK1 1SD</div>
+	<div id="image"></div>
+	<div id="details" cms-edit="sh1">
+		An old scout hut build in the thirties.
+	    It has a nice wooden floor, toilet faclities, it's own car park plus plenty of parking up the side of the building.
+	    It's also easy walking distance from the bus station and the center of town.
+	</div>
+	<a id="directions" href="http://maps.google.com/maps?f=d&source=s_q&hl=en&geocode=&q=Bellsmeadow+Road&sll=55.999581,-3.781657&sspn=0.007943,0.03871&ie=UTF8&hq=&hnear=Bellsmeadow+Rd,+Falkirk+FK1+1,+United+Kingdom&ll=56.004332,-3.773975&spn=0.016077,0.030041&z=14&iwloc=A&daddr=Bellsmeadow+Rd,+Falkirk+FK1+1,+UK">directions</a>
+</div>
+<div id="falkirk-scout" class="map"></div>
+<br/><br/>
+<h1>Girl Guide Hall</h1>
+<div id="information">
+	<div id="location">Booth Place,Pleasance Square<br/>Falkirk</div>
+	<div id="falkirk-guides-image"></div>
+	<div id="details" cms-edit="sh1">
+	An active guide hall in Falkirk Town Center. Parking close to the building can occasionally be difficult, but there is plenty of parking spaces nearby.
+	</div>
+	<a id="directions" href="http://maps.google.co.uk/maps?f=d&source=s_q&hl=en&geocode=&q=the+guide+hall+booth+place+falkirk&sll=55.997901,-3.786056&sspn=0.009684,0.016973&gl=uk&ie=UTF8&hq=the+guide+hall&hnear=Booth+Pl,+Falkirk+FK1+1,+United+Kingdom&ll=55.997925,-3.785777&spn=0.0084,0.018239&z=15&iwloc=A&daddr=Falkirk+%26+District+Guide+Hall,+Pleasance,+Falkirk,UK">directions</a>
+</div>
+<div id="falkirk-guide" class="map"></div>
+
+<br/><br/>
+<h1>Beechwood Scout Centre</h1>
+<div id="information">
+
+	<div id="location">Beechwood Park, Newhouse<br/>Stirling, FK8 2AE</div>
+	<div id="stirling-image"></div>
+	<div id="details" cms-edit="sh1">
+	Recently full renovated, the Scout Centre has full facilities and it's own private car park with ample parking.
+	</div>
+	<a id="directions" href="http://maps.google.co.uk/maps?f=d&source=s_q&hl=en&geocode=&q=Stirling+FK8+2AE,+UK&sll=56.147139,-3.952954&sspn=0.15587,0.33268&ie=UTF8&hq=&hnear=Stirling+FK8+2AE,+United+Kingdom&ll=56.107614,-3.941174&spn=0.016752,0.036478&z=14&iwloc=A&daddr=Stirling+FK8+2AE,+UK">directions</a>
+</div>
+<div id="stirling-scout" class="map"></div>
+
+<script type="text/javascript">
+
+	$on(window,"load", function()
+	{
+    	showMap( "falkirk-scout",  new google.maps.LatLng(  56.00018, -3.7758), "scout hall");
+	    showMap( "falkirk-guide",  new google.maps.LatLng(  55.99781, -3.7860), "guide hall");
+    	showMap( "stirling-scout", new google.maps.LatLng(  56.10830, -3.9404), "scout hall");
+	})
+
+</script>

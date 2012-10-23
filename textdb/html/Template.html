@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Strict//EN">
+
+<head>
+
+	<script src="./js/loader.js"></script>
+
+	<script type="text/javascript" src="./js/$.js"></script>
+	<script type="text/javascript" src="./js/browser.js"></script>
+	<script type="text/javascript" src="./js/DialogBox.js"></script>
+
+
+	{- static file='./css/style.css' -}
+	{- static file='./css/{%page%}.css' optional='True' -}
+	{- static file='./css/Maps.css' -}
+
+
+
+</head>
+<body>
+
+<div id="container">
+	<div id="page-top"></div>
+	<div id="page">
+		<div id="site-head">
+			<div id="site-logo"></div>
+			<div id="site-menu-bar">
+				<div id="site-menu">
+					<span class="menu-option"><a href="Home">Home</a></span>
+					<span class="menu-option"><a href="Instructors">Instructors</a></span>
+					<span class="menu-option"><a href="Maps">Maps</a></span>
+					<span class="menu-option-last"><a href="Contact">Contact Us</a></span>
+				</div>
+			</div>
+		</div>
+		<div id="site-body">
+			<div id="main-area">
+				{- static file='./html/{%page%}.html' -}
+			</div>
+			<div id="right-info">
+				{- static file='./html/Classes.html' -}
+			</div>
+		</div>
+	</div>
+
+	<div id="page-bottom"></div>
+
+	<div id="site-footer">
+		<div id="site-footer-text-left">
+			Long River Tai Chi Circle Scotland &copy; 2012&nbsp;&nbsp;&nbsp;
+			<!--<a href="">Contact Us</a><a href="">Privacy Policy</a><a href="">Disclaimers</a>-->
+
+		</div>
+		<div id="site-footer-text-right"><img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" /></div>
+	</div>
+
+</div>
+
+<div id="box" ></div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript">
+	function showMap(element,latlng, title)
+	{
+		var options =
+		{
+			zoom: 15,
+			center: latlng,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+
+		var map = new google.maps.Map(document.getElementById(element), options);
+
+		var marker = new google.maps.Marker
+		({
+			position: latlng,
+			icon: './png/yinyang.png',
+			title:title
+		});
+		marker.setMap(map);
+	}
+</script>
+
+
+<script>
+	function open_map( map, source )
+	{
+		DialogBox.create(500,280, "DialogBox");
+
+		var start  = {x:$pos(source).x- $sb().left,y:$pos(source).y-$sb().top};
+		var finish = {x:$vp().width/2 - DialogBox.width/2, y:$vp().height/2 - DialogBox.height/2};
+
+		DialogBox.expand( start, finish, .25, function()
+		{
+			cms.inject_html( DialogBox.div.getAttribute("contents"), map);
+		});
+	}
+	function close_dialog()
+	{
+		DialogBox.close();
+	}
+</script>
+
