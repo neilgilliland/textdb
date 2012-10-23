@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
+using System.Net;
+using System.Net.Mail;
+
 
 namespace textdb.Controllers
 {
@@ -59,11 +62,29 @@ namespace textdb.Controllers
         }
 
         [HttpPost]
-        public ActionResult ContactUs()
+        public ActionResult ContactUs( string name, string email, string text)
         {
-            //Request["contact-name"];
-            //Request["contact-email"];
-            //Request["enquiry-text"];
+            var toAddress = new MailAddress("neil@no41.co.uk", "neil gilliland");
+            var punterAddress = new MailAddress(email, name);
+
+            string subject = "longriver taichi contacts";
+            string body = text;
+
+            var fromAddress = new MailAddress("neilgilliland@gmail.com", "longriver taichi contacts");
+            string fromPassword = "Spectrum03";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.mailgun.org",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("contacts@longrivertaichi.mailgun.org", "mazdamx5", "longrivertaichi.mailgun.org")
+            };
+            var message = new MailMessage(fromAddress, toAddress){ Subject=subject, Body=body };
+            message.ReplyToList.Add( punterAddress );
+            smtp.Send(message);
 
             return Home();
         }
