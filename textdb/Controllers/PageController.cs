@@ -31,7 +31,7 @@ namespace textdb.Controllers
         public ActionResult ContactUs(int? selection)
         {
             Dictionary<int, string> list = new Dictionary<int, string>();
-            Dictionary<int, string> mail = new Dictionary<int, string>();
+            Dictionary<int, dynamic> mail = new Dictionary<int, dynamic>();
 
             string connection = "Server=29060858-f045-4504-9f56-a0a4013d07a1.sqlserver.sequelizer.com;Database=db29060858f04545049f56a0a4013d07a1;User ID=ofsnlnackvawumla;Password=o4ztwf84FqediFfPQX2zSLT3WiUcJsZBcYbmmoRCoWakB75ZStmaJbrKjFEns5to;";
             using (SqlConnection db = new SqlConnection(connection))
@@ -46,33 +46,32 @@ namespace textdb.Controllers
                 while (reader.Read())
                 {
                     list.Add((int)reader["ContactId"], (string)reader["Description"]);
-                    mail.Add((int)reader["ContactId"], (string)reader["email"]);
+                    mail.Add((int)reader["ContactId"], new { email=(string)reader["email"], name=(string)reader["name"] } );
                 }
 
                 reader.Close();
             }
 
-            ViewBag.mail = mail;
-
-            //list.Add(1, "Stirling Class");
-            //list.Add(2, "Falkirk Class ");
-            //list.Add(3, "Other");
+            TempData.Add("mail", mail);
 
             return View( list );
         }
 
         [HttpPost]
-        public ActionResult ContactUs( string name, string email, string text)
+        public ActionResult ContactUs( int contactId, string name, string email, string text)
         {
-            var toAddress = new MailAddress("neil@no41.co.uk", "neil gilliland");
+            Dictionary<int, dynamic> mail = (Dictionary<int, dynamic> )TempData["mail"];
+
+            dynamic contact = mail[contactId];
+
+            var toAddress = new MailAddress(contact.email, contact.name);
             var punterAddress = new MailAddress(email, name);
 
             string subject = "longriver taichi contacts";
             string body = text;
 
-            var fromAddress = new MailAddress("neilgilliland@gmail.com", "longriver taichi contacts");
-            string fromPassword = "Spectrum03";
-
+            var fromAddress = new MailAddress("contacts@longrivertaichi.mailgun.org", "longriver taichi contacts");
+        
             var smtp = new SmtpClient
             {
                 Host = "smtp.mailgun.org",
@@ -86,7 +85,7 @@ namespace textdb.Controllers
             message.ReplyToList.Add( punterAddress );
             smtp.Send(message);
 
-            return Home();
+            return View("ConfirmContact");
         }
 
         public FileResult png(string id )
