@@ -52,6 +52,7 @@ namespace textdb.Controllers
                 reader.Close();
             }
 
+            TempData.Remove( "mail");
             TempData.Add("mail", mail);
 
             return View( list );
