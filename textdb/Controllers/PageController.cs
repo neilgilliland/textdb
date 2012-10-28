@@ -53,9 +53,6 @@ namespace textdb.Controllers
                 reader.Close();
             }
 
-            TempData.Remove( "mail");
-            TempData.Add("mail", mail);
-
             return View( list );
         }
 
@@ -64,7 +61,21 @@ namespace textdb.Controllers
         {
             try
             {
-                Dictionary<int, dynamic> mail = (Dictionary<int, dynamic> )TempData["mail"];
+                Dictionary<int, dynamic> mail = new Dictionary<int, dynamic>();
+
+                string connection = ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"];     
+                using (SqlConnection db = new SqlConnection(connection))
+                {
+                    SqlCommand cmd = new SqlCommand("select * from Contact", db);
+                    db.Open();
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        mail.Add((int)reader["ContactId"], new { email=(string)reader["email"], name=(string)reader["name"] } );
+                    }
+                    reader.Close();
+                }
 
                 dynamic contact = mail[contactId];
 
