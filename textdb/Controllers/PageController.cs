@@ -62,37 +62,47 @@ namespace textdb.Controllers
         [HttpPost]
         public ActionResult ContactUs( int contactId, string name, string email, string text)
         {
-            Dictionary<int, dynamic> mail = (Dictionary<int, dynamic> )TempData["mail"];
-
-            dynamic contact = mail[contactId];
-
-            var toAddress = new MailAddress(contact.email, contact.name);
-            var punterAddress = new MailAddress(email, name);
-
-            string subject = "Message from "+name;
-            string body = text;
-        
-            string host = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];     
-            int port = Convert.ToInt32( ConfigurationManager.AppSettings["MAILGUN_SMTP_PORT"] );
-            string uid = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
-            string pwd = ConfigurationManager.AppSettings["MAILGUN_SMTP_PASSWORD"];
-            
-            var fromAddress = new MailAddress("contacts@longrivertaichi.mailgun.org", "longrivertaichi contacts");
-
-            var smtp = new SmtpClient
+            try
             {
-                Host = host,
-                Port = port,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(uid, pwd)
-            };
-            var message = new MailMessage(fromAddress, toAddress){ Subject=subject, Body=body };
-            message.ReplyToList.Add( punterAddress );
-            smtp.Send(message);
+                Dictionary<int, dynamic> mail = (Dictionary<int, dynamic> )TempData["mail"];
 
-            return View("ConfirmContact");
+                dynamic contact = mail[contactId];
+
+                var toAddress = new MailAddress(contact.email, contact.name);
+                var punterAddress = new MailAddress(email, name);
+
+                string subject = "Message from "+name;
+                string body = text;
+        
+                string host = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];     
+                int port = Convert.ToInt32( ConfigurationManager.AppSettings["MAILGUN_SMTP_PORT"] );
+                string uid = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
+                string pwd = ConfigurationManager.AppSettings["MAILGUN_SMTP_PASSWORD"];
+            
+                var fromAddress = new MailAddress("contacts@longrivertaichi.mailgun.org", "longrivertaichi contacts");
+
+                var smtp = new SmtpClient
+                {
+                    Host = host,
+                    Port = port,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(uid, pwd)
+                };
+                var message = new MailMessage(fromAddress, toAddress){ Subject=subject, Body=body };
+                message.ReplyToList.Add( punterAddress );
+                smtp.Send(message);
+
+                var result = new textdb.Models.MailResult("Message successfully delivered");
+
+                return View("ConfirmContact", result);
+            }
+            catch(Exception ex)
+            {
+                var result = new textdb.Models.MailResult(ex.StackTrace);
+                return View("ConfirmContact", result);
+            }
         }
 
         public FileResult png(string id )
