@@ -61,9 +61,23 @@ namespace textdb.Controllers
         {
             try
             {
+                string connection = ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"];     
+
+                //save mail to database//
+                using (SqlConnection db = new SqlConnection(connection))
+                {
+                    SqlCommand cmd = db.CreateCommand();
+                    cmd.CommandText = "insert into Emails (name,email,text,contactId) values (@name,@email,@text,@contactId)";
+                    cmd.Parameters.AddWithValue( "@name", name );
+                    cmd.Parameters.AddWithValue( "@email", email );
+                    cmd.Parameters.AddWithValue( "@text", text );
+                    cmd.Parameters.AddWithValue( "@contactId", contactId );
+                    db.Open();
+                    cmd.ExecuteNonQuery();
+                }
+                
                 Dictionary<int, dynamic> mail = new Dictionary<int, dynamic>();
 
-                string connection = ConfigurationManager.AppSettings["SQLSERVER_CONNECTION_STRING"];     
                 using (SqlConnection db = new SqlConnection(connection))
                 {
                     SqlCommand cmd = new SqlCommand("select * from Contact", db);
@@ -72,7 +86,7 @@ namespace textdb.Controllers
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        mail.Add((int)reader["ContactId"], new { email=(string)reader["email"], name=(string)reader["name"] } );
+                        mail.Add((int)reader["ContactId"], new { email=(string)reader["email"], name=(string)reader["name"], description=(string)reader["description"] } );
                     }
                     reader.Close();
                 }
@@ -82,7 +96,7 @@ namespace textdb.Controllers
                 var toAddress = new MailAddress(contact.email, contact.name);
                 var punterAddress = new MailAddress(email, name);
 
-                string subject = "Message from "+name;
+                string subject = "Message from "+name+" about "+contact.description;
                 string body = text;
         
                 string host = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];     
