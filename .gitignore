@@ -1,2 +1,8 @@
 
-textdb.Tests/obj/Debug/textdb.Tests.pdb
+*.pdb
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
