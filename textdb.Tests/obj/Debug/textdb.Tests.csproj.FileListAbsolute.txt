@@ -1,8 +1,0 @@
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\bin\Debug\textdb.Tests.dll.config
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\bin\Debug\textdb.Tests.dll
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\bin\Debug\textdb.Tests.pdb
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\bin\Debug\textdb.dll
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\bin\Debug\textdb.pdb
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\obj\Debug\textdb.Tests.csprojResolveAssemblyReference.cache
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\obj\Debug\textdb.Tests.dll
-C:\Users\neil\Projects\Web\textdb\textdb.Tests\obj\Debug\textdb.Tests.pdb

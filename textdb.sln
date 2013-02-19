@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "textdb", "textdb\textdb.csproj", "{5E3B28FD-F574-4BCB-9081-60504A10F163}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "textdb.Tests", "textdb.Tests\textdb.Tests.csproj", "{56F3D784-DD32-40AD-8F6E-9A853401F292}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{5E3B28FD-F574-4BCB-9081-60504A10F163}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E3B28FD-F574-4BCB-9081-60504A10F163}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E3B28FD-F574-4BCB-9081-60504A10F163}.Release|Any CPU.Build.0 = Release|Any CPU
-		{56F3D784-DD32-40AD-8F6E-9A853401F292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{56F3D784-DD32-40AD-8F6E-9A853401F292}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{56F3D784-DD32-40AD-8F6E-9A853401F292}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{56F3D784-DD32-40AD-8F6E-9A853401F292}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
