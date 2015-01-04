@@ -242,7 +242,7 @@ ul#times
 	margin-left:0px;
 	margin-top:0px;
 	padding-bottom:0px;
-	margin-bottom: 0px;
+	margin-bottom: 8px;
 	position:relative;
 	top:-3px;
 }
@@ -251,9 +251,10 @@ ul#times li
 {
 	list-style:none;
 	font-family:arial;
-	font-size:7pt;
+	font-size:8.5pt;
 	position:relative;
 	left:0px;
+    margin-bottom:2px
 }
 
 div#site-footer-gap
