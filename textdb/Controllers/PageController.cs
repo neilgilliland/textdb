@@ -125,7 +125,7 @@ namespace textdb.Controllers
             }
             catch(Exception ex)
             {
-                var result = new textdb.Models.MailResult(ex.StackTrace);
+                var result = new textdb.Models.MailResult(ex.Message+"."+ex.StackTrace);
                 return View("ConfirmContact", result);
             }
         }
