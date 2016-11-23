@@ -99,12 +99,12 @@ namespace textdb.Controllers
                 string subject = "Message from "+name+" about "+contact.description;
                 string body = text;
         
-                string host = ConfigurationManager.AppSettings["MAILGUN_SMTP_SERVER"];     
-                int port = Convert.ToInt32( ConfigurationManager.AppSettings["MAILGUN_SMTP_PORT"] );
-                string uid = ConfigurationManager.AppSettings["MAILGUN_SMTP_LOGIN"];
-                string pwd = ConfigurationManager.AppSettings["MAILGUN_SMTP_PASSWORD"];
+                string host = ConfigurationManager.AppSettings["GMAIL_SMTP_SERVER"];     
+                int port = Convert.ToInt32( ConfigurationManager.AppSettings["GMAIL_SMTP_PORT"] );
+                string uid = ConfigurationManager.AppSettings["GMAIL_SMTP_LOGIN"];
+                string pwd = ConfigurationManager.AppSettings["GMAIL_SMTP_PASSWORD"];
             
-                var fromAddress = new MailAddress("contacts@longrivertaichi.mailgun.org", "longrivertaichi contacts");
+                var fromAddress = new MailAddress(uid, "longrivertaichi contacts");
 
                 var smtp = new SmtpClient
                 {
