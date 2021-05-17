@@ -44,8 +44,8 @@
 </div>
 <div id="stirling-scout" class="map"></div>
 -->
-<script type="text/javascript"
-    src="http://maps.google.com/maps/api/js?sensor=false">
+<script type="text/javascript" async
+    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARkAhCzoChFfk4NXAQ2RcjyBUSQhWwfos&callback=initMap">
 </script>
 
 <script type="text/javascript">
@@ -70,11 +70,12 @@
 		marker.setMap(map);
 	}
 
-	$on(window,"load", function()
+	//$on(window,"load", function()
+	function initMap()
 	{
-    	showMap( "falkirk-scout",  new google.maps.LatLng(  56.00018, -3.7758), "scout hall");
-	    showMap( "falkirk-guide",  new google.maps.LatLng(  55.99781, -3.7860), "guide hall");
-    	showMap( "stirling-scout", new google.maps.LatLng(  56.10830, -3.9404), "scout hall");
+    		showMap( "falkirk-scout",  new google.maps.LatLng(  56.00018, -3.7758), "scout hall");
+	    	showMap( "falkirk-guide",  new google.maps.LatLng(  55.99781, -3.7860), "guide hall");
+    		showMap( "stirling-scout", new google.maps.LatLng(  56.10830, -3.9404), "scout hall");
 	})
 
 </script>
