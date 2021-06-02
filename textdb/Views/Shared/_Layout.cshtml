@@ -1,110 +1,11 @@
-﻿<!DOCTYPE html>
-
-<script type="text/javascript" src="../../js/loader.js" ></script>
-<script type="text/javascript" src="../../js/$.js"></script>
-<script type="text/javascript" src="../../js/browser.js"></script>
-<script type="text/javascript" src="../../js/DialogBox.js"></script>
-
-
-<head>
-
-    <meta charset="utf-8" />
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Home.css")" rel="stylesheet" type="text/css" />
-    <link href="@Url.Content("~/Content/Maps.css")" rel="stylesheet" type="text/css" />
-    
-</head>
-<body>
-
+<!DOCTYPE html>
 <html>
-
-<div id="container">
-	<div id="page-top"></div>
-	<div id="page">
-		<div id="site-head">
-			<div id="site-logo"></div>
-			<div id="site-menu-bar">
-				<div id="site-menu">
-					<span class="menu-option">@Html.ActionLink("Home", "Home")</span>
-					<span class="menu-option">@Html.ActionLink("Instructors", "Instructors")</span>
-					<span class="menu-option">@Html.ActionLink("Maps", "Maps")</span>
-				</div>
-			</div>
-		</div>
-		<div id="site-body">
-			<div id="main-area">
-            @RenderBody()
-			</div>
-			<div id="right-info">
-                @RenderPage("_classes.cshtml")
-			</div>
-		</div>
-	</div>
-
-	<div id="page-bottom"></div>
-
-	<div id="site-footer">
-		<div id="site-footer-text-left">
-			Long River Tai Chi Circle Scotland &copy; @DateTime.Now.Year&nbsp;&nbsp;&nbsp;
-			<!--<a href="">Contact Us</a><a href="">Privacy Policy</a><a href="">Disclaimers</a>-->
-
-		</div>
-	</div>
-
-</div>
-
-<div id="box" ></div>
-
-</body>
+  <head>
+    <meta http-equiv="refresh" content="0; url='http://longrivertaichi.org.uk'" />
+  </head>
+  <body>
+   <p>This page has moved to a <a href="http://longrivertaichi.org.uk/">longrivertaichi.org.uk</a>.</p> 
+  </body>
 </html>
-
-
-<script type="text/javascript" async
-    	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARkAhCzoChFfk4NXAQ2RcjyBUSQhWwfos&callback=initMap">
-</script>
-
-function initMap(){}
-
-<script type="text/javascript">
-	function showMap(element,latlng, title)
-	{
-		var options =
-		{
-			zoom: 15,
-			center: latlng,
-			mapTypeId: google.maps.MapTypeId.ROADMAP
-		};
-
-		var map = new google.maps.Map(document.getElementById(element), options);
-
-		var marker = new google.maps.Marker
-		({
-			position: latlng,
-			icon: './png/yinyang.png',
-			title:title
-		});
-		marker.setMap(map);
-	}
-</script>
-
-
-<script>
-	function open_map( map, source )
-	{
-		DialogBox.create(500,280, "DialogBox");
-
-		var start  = {x:$pos(source).x- $sb().left,y:$pos(source).y-$sb().top};
-		var finish = {x:$vp().width/2 - DialogBox.width/2, y:$vp().height/2 - DialogBox.height/2};
-
-		DialogBox.expand( start, finish, .25, function()
-		{
-			cms.inject_html( DialogBox.div.getAttribute("contents"), map);
-		});
-	}
-	function close_dialog()
-	{
-		DialogBox.close();
-	}
-</script>
 
 
